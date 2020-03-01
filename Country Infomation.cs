@@ -45,10 +45,10 @@ namespace Country_Information
 		private void PrintArrayContents(ref string[] PrintArray)
 		{
 			// Print array to listbox
-			foreach (string StarWarsCharacterList in PrintArray)
+			foreach (string Countries in PrintArray)
 			{
-				lstCountryInfo.Items.Add(StarWarsCharacterList);
-				txtCountryName.AutoCompleteCustomSource.Add(StarWarsCharacterList);
+				lstCountryInfo.Items.Add(Countries);
+				txtCountryName.AutoCompleteCustomSource.Add(Countries);
 			}
 
 		}
@@ -70,7 +70,7 @@ namespace Country_Information
 
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
-			// Find character after user types
+			// Find country after user types
 			int index = lstCountryInfo.FindString(txtCountryName.Text, -1);
 			if (index != -1)
 			{
@@ -80,10 +80,11 @@ namespace Country_Information
 				if (dialogResult == DialogResult.Yes)
 				{
 					// Nothing
+					txtLongandLat.Text = lstCountryInfo.Text;
 				}
 				else if (dialogResult == DialogResult.No)
 				{
-				
+
 				}
 			}
 
@@ -102,6 +103,8 @@ namespace Country_Information
 			// Clear contents in text box
 			txtCountryName.Clear();
 			lstCountryInfo.ClearSelected();
+
+			txtLongandLat.Clear();
 		}
 
 		private void txtCountryName_TextChanged(object sender, EventArgs e)
@@ -119,7 +122,17 @@ namespace Country_Information
 
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
-		
+
 		}
+
+		private void txtCountryName_Click(object sender, EventArgs e)
+		{
+			txtCountryName.Text = null;
+			txtLongandLat.Text = null;
+		}
+
 	}
 }
+	
+
+

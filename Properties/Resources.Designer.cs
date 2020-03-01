@@ -63,6 +63,26 @@ namespace Country_Information.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bull_Maque_Logo_3D_with_text {
+            get {
+                object obj = ResourceManager.GetObject("Bull_Maque_Logo_3D_with_text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon countryinfo_icon {
+            get {
+                object obj = ResourceManager.GetObject("countryinfo_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap World_Map_Background {
             get {
                 object obj = ResourceManager.GetObject("World_Map_Background", resourceCulture);
