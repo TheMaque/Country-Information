@@ -36,7 +36,9 @@
 			this.txtLongandLat = new System.Windows.Forms.TextBox();
 			this.webBrowser = new System.Windows.Forms.WebBrowser();
 			this.picBoxLogo = new System.Windows.Forms.PictureBox();
+			this.grpGoogleSearch = new System.Windows.Forms.GroupBox();
 			((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
+			this.grpGoogleSearch.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lstCountryInfo
@@ -50,7 +52,7 @@
 			this.lstCountryInfo.Location = new System.Drawing.Point(541, 74);
 			this.lstCountryInfo.Name = "lstCountryInfo";
 			this.lstCountryInfo.Size = new System.Drawing.Size(249, 276);
-			this.lstCountryInfo.TabIndex = 0;
+			this.lstCountryInfo.TabIndex = 3;
 			this.lstCountryInfo.Click += new System.EventHandler(this.lstCountryInfo_Click);
 			this.lstCountryInfo.DoubleClick += new System.EventHandler(this.lstCountryInfo_DoubleClick);
 			// 
@@ -64,7 +66,7 @@
 			this.txtCountryName.Location = new System.Drawing.Point(541, 356);
 			this.txtCountryName.Name = "txtCountryName";
 			this.txtCountryName.Size = new System.Drawing.Size(249, 26);
-			this.txtCountryName.TabIndex = 3;
+			this.txtCountryName.TabIndex = 0;
 			this.txtCountryName.Click += new System.EventHandler(this.txtCountryName_Click);
 			this.txtCountryName.TextChanged += new System.EventHandler(this.txtCountryName_TextChanged);
 			// 
@@ -77,7 +79,7 @@
 			this.btnSearch.Location = new System.Drawing.Point(718, 397);
 			this.btnSearch.Name = "btnSearch";
 			this.btnSearch.Size = new System.Drawing.Size(72, 22);
-			this.btnSearch.TabIndex = 4;
+			this.btnSearch.TabIndex = 1;
 			this.btnSearch.Text = "Search";
 			this.btnSearch.UseVisualStyleBackColor = false;
 			this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -91,7 +93,7 @@
 			this.btntxtClear.Location = new System.Drawing.Point(640, 397);
 			this.btntxtClear.Name = "btntxtClear";
 			this.btntxtClear.Size = new System.Drawing.Size(72, 22);
-			this.btntxtClear.TabIndex = 5;
+			this.btntxtClear.TabIndex = 2;
 			this.btntxtClear.Text = "Clear";
 			this.btntxtClear.UseVisualStyleBackColor = false;
 			this.btntxtClear.Click += new System.EventHandler(this.btntxtClear_Click);
@@ -113,12 +115,15 @@
 			// 
 			// webBrowser
 			// 
-			this.webBrowser.Location = new System.Drawing.Point(16, 74);
+			this.webBrowser.AllowNavigation = false;
+			this.webBrowser.AllowWebBrowserDrop = false;
+			this.webBrowser.Location = new System.Drawing.Point(15, 20);
 			this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
 			this.webBrowser.Name = "webBrowser";
-			this.webBrowser.Size = new System.Drawing.Size(506, 308);
-			this.webBrowser.TabIndex = 7;
-			this.webBrowser.Url = new System.Uri("http://google.com", System.UriKind.Absolute);
+			this.webBrowser.ScriptErrorsSuppressed = true;
+			this.webBrowser.Size = new System.Drawing.Size(491, 310);
+			this.webBrowser.TabIndex = 1;
+			this.webBrowser.Url = new System.Uri("http://google.com/maps", System.UriKind.Absolute);
 			// 
 			// picBoxLogo
 			// 
@@ -131,6 +136,22 @@
 			this.picBoxLogo.TabIndex = 8;
 			this.picBoxLogo.TabStop = false;
 			// 
+			// grpGoogleSearch
+			// 
+			this.grpGoogleSearch.BackColor = System.Drawing.Color.Transparent;
+			this.grpGoogleSearch.BackgroundImage = global::Country_Information.Properties.Resources.groupBox_Background;
+			this.grpGoogleSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.grpGoogleSearch.Controls.Add(this.webBrowser);
+			this.grpGoogleSearch.Enabled = false;
+			this.grpGoogleSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.grpGoogleSearch.ForeColor = System.Drawing.Color.Transparent;
+			this.grpGoogleSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.grpGoogleSearch.Location = new System.Drawing.Point(12, 74);
+			this.grpGoogleSearch.Name = "grpGoogleSearch";
+			this.grpGoogleSearch.Size = new System.Drawing.Size(519, 345);
+			this.grpGoogleSearch.TabIndex = 9;
+			this.grpGoogleSearch.TabStop = false;
+			// 
 			// CountryInformation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,7 +159,7 @@
 			this.BackgroundImage = global::Country_Information.Properties.Resources.World_Map_Background;
 			this.ClientSize = new System.Drawing.Size(798, 468);
 			this.Controls.Add(this.picBoxLogo);
-			this.Controls.Add(this.webBrowser);
+			this.Controls.Add(this.grpGoogleSearch);
 			this.Controls.Add(this.txtLongandLat);
 			this.Controls.Add(this.btntxtClear);
 			this.Controls.Add(this.btnSearch);
@@ -152,6 +173,7 @@
 			this.Text = "Country Information";
 			this.Load += new System.EventHandler(this.CountryInformation_Load);
 			((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
+			this.grpGoogleSearch.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -166,6 +188,7 @@
 		private System.Windows.Forms.TextBox txtLongandLat;
 		private System.Windows.Forms.WebBrowser webBrowser;
 		private System.Windows.Forms.PictureBox picBoxLogo;
+		private System.Windows.Forms.GroupBox grpGoogleSearch;
 	}
 }
 

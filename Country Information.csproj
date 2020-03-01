@@ -70,6 +70,7 @@
     <None Include="Country Information Resources\World Map Background.jpeg" />
     <None Include="Country Information Resources\countryinfo_icon.ico" />
     <None Include="Country Information Resources\Bull Maque Logo 3D with text.png" />
+    <None Include="Country Information Resources\groupBox Background.jpg" />
     <Content Include="CountryInfo.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

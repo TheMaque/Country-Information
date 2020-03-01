@@ -83,6 +83,16 @@ namespace Country_Information.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap groupBox_Background {
+            get {
+                object obj = ResourceManager.GetObject("groupBox_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap World_Map_Background {
             get {
                 object obj = ResourceManager.GetObject("World_Map_Background", resourceCulture);

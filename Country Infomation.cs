@@ -41,6 +41,7 @@ namespace Country_Information
 			// Print CSV into array
 			PrintArrayContents(ref Countries);
 
+
 		}
 		private void PrintArrayContents(ref string[] PrintArray)
 		{
@@ -70,24 +71,27 @@ namespace Country_Information
 
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
+
+
 			// Find country after user types
 			int index = lstCountryInfo.FindString(txtCountryName.Text, -1);
 			if (index != -1)
 			{
 				lstCountryInfo.SetSelected(index, true);
-
 				DialogResult dialogResult = MessageBox.Show("Is this the country you were search for?", "Are you sure?", MessageBoxButtons.YesNo);
 				if (dialogResult == DialogResult.Yes)
 				{
 					// Nothing
 					txtLongandLat.Text = lstCountryInfo.Text;
+					btnSearch.Enabled = false;
+					grpGoogleSearch.Enabled = true;
+
 				}
 				else if (dialogResult == DialogResult.No)
 				{
 
 				}
 			}
-
 			else
 			{
 				// Show message to user if input is not a valid character
@@ -95,6 +99,7 @@ namespace Country_Information
 				txtCountryName.Clear();
 
 			}
+
 
 		}
 
@@ -105,6 +110,10 @@ namespace Country_Information
 			lstCountryInfo.ClearSelected();
 
 			txtLongandLat.Clear();
+
+			grpGoogleSearch.Enabled = false;
+			lstCountryInfo.SelectedItem = null;
+
 		}
 
 		private void txtCountryName_TextChanged(object sender, EventArgs e)
@@ -117,22 +126,24 @@ namespace Country_Information
 
 		private void lstCountryInfo_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("");
+
 		}
 
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
-
+			txtLongandLat.Text = lstCountryInfo.Text;
 		}
 
 		private void txtCountryName_Click(object sender, EventArgs e)
 		{
 			txtCountryName.Text = null;
-			txtLongandLat.Text = null;
+
+			lstCountryInfo.SelectedItem = null;
+			grpGoogleSearch.Enabled = false;
 		}
 
 	}
 }
-	
+
 
 
