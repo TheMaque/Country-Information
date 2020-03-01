@@ -65,7 +65,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Country Information Resources\World Map Background.jpeg" />
     <Content Include="CountryInfo.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

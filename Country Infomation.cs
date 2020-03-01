@@ -15,6 +15,15 @@ using System.Media;
 
 namespace Country_Information
 {
+	/* Name: Reggie Telemaque  * Date: 02/29/2020
+     *  
+     * 
+     * MIDTERM: Country Information 
+
+     * 
+     *  Purpose: A program that a user can find a countries longitude and latitude by putting in the name of the country itself by way of a textbox.
+     */
+
 	public partial class CountryInformation : Form
 	{
 		public CountryInformation()
@@ -59,21 +68,33 @@ namespace Country_Information
 			inputFileReader.Dispose();
 		}
 
-		private void btnFind_Click(object sender, EventArgs e)
+		private void btnSearch_Click(object sender, EventArgs e)
 		{
 			// Find character after user types
 			int index = lstCountryInfo.FindString(txtCountryName.Text, -1);
 			if (index != -1)
 			{
 				lstCountryInfo.SetSelected(index, true);
+
+				DialogResult dialogResult = MessageBox.Show("Is this the country you were search for?", "Are you sure?", MessageBoxButtons.YesNo);
+				if (dialogResult == DialogResult.Yes)
+				{
+					// Nothing
+				}
+				else if (dialogResult == DialogResult.No)
+				{
+				
+				}
 			}
+
 			else
 			{
 				// Show message to user if input is not a valid character
-				MessageBox.Show("Country not found, try again!", "Error: Character Invalid");
+				MessageBox.Show("Country not found, try again!", "Error: Country Invalid.");
 				txtCountryName.Clear();
 
 			}
+
 		}
 
 		private void btntxtClear_Click(object sender, EventArgs e)
@@ -86,9 +107,19 @@ namespace Country_Information
 		private void txtCountryName_TextChanged(object sender, EventArgs e)
 		{
 			// Make sure that textbox is full to enable buttons.
-			btnFind.Enabled = !string.IsNullOrEmpty(txtCountryName.Text);
+			btnSearch.Enabled = !string.IsNullOrEmpty(txtCountryName.Text);
 			btntxtClear.Enabled = !string.IsNullOrEmpty(txtCountryName.Text);
 
+		}
+
+		private void lstCountryInfo_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("");
+		}
+
+		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
+		{
+		
 		}
 	}
 }
