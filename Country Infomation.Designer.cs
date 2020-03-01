@@ -107,9 +107,9 @@
 			this.txtLongandLat.Enabled = false;
 			this.txtLongandLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtLongandLat.ForeColor = System.Drawing.Color.White;
-			this.txtLongandLat.Location = new System.Drawing.Point(16, 430);
+			this.txtLongandLat.Location = new System.Drawing.Point(12, 430);
 			this.txtLongandLat.Name = "txtLongandLat";
-			this.txtLongandLat.Size = new System.Drawing.Size(774, 29);
+			this.txtLongandLat.Size = new System.Drawing.Size(781, 29);
 			this.txtLongandLat.TabIndex = 6;
 			this.txtLongandLat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
@@ -143,7 +143,6 @@
 			this.grpGoogleSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.grpGoogleSearch.Controls.Add(this.webBrowser);
 			this.grpGoogleSearch.Enabled = false;
-			this.grpGoogleSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.grpGoogleSearch.ForeColor = System.Drawing.Color.Transparent;
 			this.grpGoogleSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.grpGoogleSearch.Location = new System.Drawing.Point(12, 74);
@@ -157,7 +156,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::Country_Information.Properties.Resources.World_Map_Background;
-			this.ClientSize = new System.Drawing.Size(798, 468);
+			this.ClientSize = new System.Drawing.Size(798, 485);
 			this.Controls.Add(this.picBoxLogo);
 			this.Controls.Add(this.grpGoogleSearch);
 			this.Controls.Add(this.txtLongandLat);
@@ -165,6 +164,7 @@
 			this.Controls.Add(this.btnSearch);
 			this.Controls.Add(this.txtCountryName);
 			this.Controls.Add(this.lstCountryInfo);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
