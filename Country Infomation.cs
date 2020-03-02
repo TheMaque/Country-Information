@@ -78,7 +78,7 @@ namespace Country_Information
 			if (index != -1)
 			{
 				lstCountryInfo.SetSelected(index, true);
-				DialogResult dialogResult = MessageBox.Show("Is this the country you were search for?", "Are you sure?", MessageBoxButtons.YesNo);
+				DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
 				if (dialogResult == DialogResult.Yes)
 				{
 					// Nothing
