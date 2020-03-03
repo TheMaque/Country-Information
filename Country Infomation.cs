@@ -35,6 +35,8 @@ namespace Country_Information
 		{
 			// Make a array of 244 characters in locals
 			string[] Countries = new string[244];
+			string[] Longitude = new string[244];
+			string[] Latitude = new string[244];
 
 			// Load characters from csv file to listbox
 			LoadCountries(ref Countries);
