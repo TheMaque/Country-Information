@@ -172,6 +172,7 @@
 			this.grpDoubleClick.BackgroundImage = global::Country_Information.Properties.Resources.World_Map_Background;
 			this.grpDoubleClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.grpDoubleClick.Controls.Add(this.lblDoubleClick);
+			this.grpDoubleClick.Enabled = false;
 			this.grpDoubleClick.ForeColor = System.Drawing.Color.Transparent;
 			this.grpDoubleClick.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.grpDoubleClick.Location = new System.Drawing.Point(541, 37);

@@ -35,15 +35,15 @@ namespace Country_Information
 		{
 			// Make a array of 244 characters in locals
 			string[] Countries = new string[244];
+
 			// Load characters from csv file to listbox
 			LoadCountries(ref Countries);
 
 			// Print CSV into array
 			PrintArrayContents(ref Countries);
 
-
-
 		}
+
 		private void PrintArrayContents(ref string[] PrintArray)
 		{
 			// Print array to listbox
@@ -72,8 +72,6 @@ namespace Country_Information
 
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
-
-
 			// Find country after user types
 			int index = lstCountryInfo.FindString(txtCountryName.Text, -1);
 			if (index != -1)
