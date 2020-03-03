@@ -37,8 +37,11 @@
 			this.webBrowser = new System.Windows.Forms.WebBrowser();
 			this.picBoxLogo = new System.Windows.Forms.PictureBox();
 			this.grpGoogleSearch = new System.Windows.Forms.GroupBox();
+			this.lblDoubleClick = new System.Windows.Forms.Label();
+			this.grpDoubleClick = new System.Windows.Forms.GroupBox();
 			((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
 			this.grpGoogleSearch.SuspendLayout();
+			this.grpDoubleClick.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lstCountryInfo
@@ -151,12 +154,39 @@
 			this.grpGoogleSearch.TabIndex = 9;
 			this.grpGoogleSearch.TabStop = false;
 			// 
+			// lblDoubleClick
+			// 
+			this.lblDoubleClick.AutoSize = true;
+			this.lblDoubleClick.BackColor = System.Drawing.Color.Transparent;
+			this.lblDoubleClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDoubleClick.ForeColor = System.Drawing.Color.Transparent;
+			this.lblDoubleClick.Location = new System.Drawing.Point(13, 11);
+			this.lblDoubleClick.Name = "lblDoubleClick";
+			this.lblDoubleClick.Size = new System.Drawing.Size(225, 13);
+			this.lblDoubleClick.TabIndex = 10;
+			this.lblDoubleClick.Text = "Double click to get detials for country.";
+			// 
+			// grpDoubleClick
+			// 
+			this.grpDoubleClick.BackColor = System.Drawing.Color.Transparent;
+			this.grpDoubleClick.BackgroundImage = global::Country_Information.Properties.Resources.World_Map_Background;
+			this.grpDoubleClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.grpDoubleClick.Controls.Add(this.lblDoubleClick);
+			this.grpDoubleClick.ForeColor = System.Drawing.Color.Transparent;
+			this.grpDoubleClick.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.grpDoubleClick.Location = new System.Drawing.Point(541, 37);
+			this.grpDoubleClick.Name = "grpDoubleClick";
+			this.grpDoubleClick.Size = new System.Drawing.Size(249, 31);
+			this.grpDoubleClick.TabIndex = 10;
+			this.grpDoubleClick.TabStop = false;
+			// 
 			// CountryInformation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::Country_Information.Properties.Resources.World_Map_Background;
 			this.ClientSize = new System.Drawing.Size(798, 485);
+			this.Controls.Add(this.grpDoubleClick);
 			this.Controls.Add(this.picBoxLogo);
 			this.Controls.Add(this.grpGoogleSearch);
 			this.Controls.Add(this.txtLongandLat);
@@ -174,6 +204,8 @@
 			this.Load += new System.EventHandler(this.CountryInformation_Load);
 			((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
 			this.grpGoogleSearch.ResumeLayout(false);
+			this.grpDoubleClick.ResumeLayout(false);
+			this.grpDoubleClick.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -189,6 +221,8 @@
 		private System.Windows.Forms.WebBrowser webBrowser;
 		private System.Windows.Forms.PictureBox picBoxLogo;
 		private System.Windows.Forms.GroupBox grpGoogleSearch;
+		private System.Windows.Forms.Label lblDoubleClick;
+		private System.Windows.Forms.GroupBox grpDoubleClick;
 	}
 }
 
