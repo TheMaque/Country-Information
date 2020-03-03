@@ -61,8 +61,6 @@
 			// 
 			// txtCountryName
 			// 
-			this.txtCountryName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.txtCountryName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
 			this.txtCountryName.BackColor = System.Drawing.Color.Black;
 			this.txtCountryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtCountryName.ForeColor = System.Drawing.Color.White;
@@ -72,6 +70,7 @@
 			this.txtCountryName.TabIndex = 0;
 			this.txtCountryName.Click += new System.EventHandler(this.txtCountryName_Click);
 			this.txtCountryName.TextChanged += new System.EventHandler(this.txtCountryName_TextChanged);
+			this.txtCountryName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCountryName_KeyDown);
 			// 
 			// btnSearch
 			// 

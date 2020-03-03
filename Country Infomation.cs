@@ -82,7 +82,7 @@ namespace Country_Information
 				DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
 				if (dialogResult == DialogResult.Yes)
 				{
-					// Nothing
+
 					txtLongandLat.Text = lstCountryInfo.Text;
 					btnSearch.Enabled = false;
 					grpGoogleSearch.Enabled = true;
@@ -90,7 +90,7 @@ namespace Country_Information
 				}
 				else if (dialogResult == DialogResult.No)
 				{
-
+					
 				}
 			}
 			else
@@ -143,6 +143,13 @@ namespace Country_Information
 			grpGoogleSearch.Enabled = false;
 		}
 
+		private void txtCountryName_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				btnSearch.PerformClick();
+			}
+		}
 	}
 }
 
