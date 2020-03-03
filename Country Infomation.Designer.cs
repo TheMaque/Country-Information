@@ -107,9 +107,9 @@
 			this.txtLongandLat.Enabled = false;
 			this.txtLongandLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtLongandLat.ForeColor = System.Drawing.Color.White;
-			this.txtLongandLat.Location = new System.Drawing.Point(12, 430);
+			this.txtLongandLat.Location = new System.Drawing.Point(14, 430);
 			this.txtLongandLat.Name = "txtLongandLat";
-			this.txtLongandLat.Size = new System.Drawing.Size(781, 29);
+			this.txtLongandLat.Size = new System.Drawing.Size(778, 29);
 			this.txtLongandLat.TabIndex = 6;
 			this.txtLongandLat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
