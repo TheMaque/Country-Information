@@ -117,7 +117,6 @@
 			// 
 			// webBrowser
 			// 
-			this.webBrowser.AllowNavigation = false;
 			this.webBrowser.AllowWebBrowserDrop = false;
 			this.webBrowser.Location = new System.Drawing.Point(15, 20);
 			this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);

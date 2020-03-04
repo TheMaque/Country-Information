@@ -127,12 +127,19 @@ namespace Country_Information
 
 		private void lstCountryInfo_Click(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
 			txtLongandLat.Text = lstCountryInfo.Text;
+
+			if (lstCountryInfo.SelectedItem !=null)
+			{
+				string url = lstCountryInfo.SelectedItem.ToString();
+				webBrowser.Navigate("http://google.com/maps/search/" + lstCountryInfo.SelectedItem.ToString());
+			}
+
 		}
 
 		private void txtCountryName_Click(object sender, EventArgs e)
@@ -148,6 +155,10 @@ namespace Country_Information
 			if (e.KeyCode == Keys.Enter)
 			{
 				btnSearch.PerformClick();
+			}
+			else if (e.KeyCode == Keys.Delete)
+			{
+				btntxtClear.PerformClick();
 			}
 		}
 	}
