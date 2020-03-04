@@ -30,26 +30,29 @@ namespace Country_Information
 		{
 			InitializeComponent();
 		}
+		
+		// Global
+		string[] Countries = new string[243];
+		string[] Latitude = new string[243];
+		string[] Longitude = new string[243];
+		
 
 		private void CountryInformation_Load(object sender, EventArgs e)
 		{
-			// Make a array of 244 characters in locals
-			string[] Countries = new string[244];
-			string[] Longitude = new string[244];
-			string[] Latitude = new string[244];
+
 
 			// Load characters from csv file to listbox
-			LoadCountries(ref Countries);
+			LoadCountries();
 
 			// Print CSV into array
-			PrintArrayContents(ref Countries);
+			PrintArrayContents();
 
 		}
 
-		private void PrintArrayContents(ref string[] PrintArray)
+		private void PrintArrayContents()
 		{
 			// Print array to listbox
-			foreach (string Countries in PrintArray)
+			foreach (string Countries in Countries)
 			{
 				lstCountryInfo.Items.Add(Countries);
 				txtCountryName.AutoCompleteCustomSource.Add(Countries);
@@ -58,15 +61,22 @@ namespace Country_Information
 		}
 
 
-		private void LoadCountries(ref string[] Countries)
+		private void LoadCountries()
 		{
 			// Read and open CSV into index.
 			StreamReader inputFileReader = File.OpenText("CountryInfo.csv");
 			int index = 0;
+			string[] data;
+
 			while (!inputFileReader.EndOfStream)
 			{
-				Countries[index] = inputFileReader.ReadLine();
+				data = inputFileReader.ReadLine().Split(',');
+				Countries[index] = data[0];
+				Latitude[index] = data[1];
+				Longitude[index] = data[2];
+				
 				index++;
+
 			}
 			inputFileReader.Close();
 			inputFileReader.Dispose();
@@ -83,7 +93,7 @@ namespace Country_Information
 				if (dialogResult == DialogResult.Yes)
 				{
 
-					txtLongandLat.Text = lstCountryInfo.Text;
+					txtLongandLat.Text = "Latitude:" + Latitude + "Longitude" + Longitude;
 					btnSearch.Enabled = false;
 					grpGoogleSearch.Enabled = true;
 
@@ -132,7 +142,7 @@ namespace Country_Information
 
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
-			txtLongandLat.Text = lstCountryInfo.Text;
+			txtLongandLat.Text = "Latitude:" + Latitude + "Longitude" + Longitude;
 
 			if (lstCountryInfo.SelectedItem !=null)
 			{
