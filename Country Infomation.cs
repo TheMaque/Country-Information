@@ -31,15 +31,18 @@ namespace Country_Information
 			InitializeComponent();
 		}
 
-		// Global
+		// Global variables. 
 		string[] Countries = new string[243];
 		string[] Latitude = new string[243];
 		string[] Longitude = new string[243];
 
-
+	/// <summary>
+	/// Load event that references csv file to listbox and prints array contents.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 		private void CountryInformation_Load(object sender, EventArgs e)
 		{
-
 
 			// Load characters from csv file to listbox
 			LoadCountries();
@@ -47,22 +50,26 @@ namespace Country_Information
 			// Print CSV into array
 			PrintArrayContents();
 
-			
 
 		}
 
+		/// <summary>
+		/// Method to print array contents to listbox. 
+		/// </summary>
 		private void PrintArrayContents()
 		{
 			// Print array to listbox
 			foreach (string Countries in Countries)
 			{
 				lstCountryInfo.Items.Add(Countries);
-				txtCountryName.AutoCompleteCustomSource.Add(Countries);
+				//txtCountryName.AutoCompleteCustomSource.Add(Countries);
 			}
 
 		}
 
-
+		/// <summary>
+		/// Method to load countries from file to push, and split them to an array.
+		/// </summary>
 		private void LoadCountries()
 		{
 			// Read and open CSV into index.
@@ -83,34 +90,36 @@ namespace Country_Information
 			inputFileReader.Close();
 			inputFileReader.Dispose();
 		}
-
+		
+		/// <summary>
+		/// Method for when a country is searched to get validate if the user wanted that country selected. 
+		/// </summary>
 		private void CountrySearch()
 		{
+			// 
 			bool CountryWasFound = false;
 			for (int index = lstCountryInfo.Items.Count - 1; index >= 0; index--)
 			{
 				if (lstCountryInfo.Items[index].ToString().Contains(txtCountryName.Text))
 				{
+					// Searches index
 					lstCountryInfo.SetSelected(index, true);
+					
+					// Shows a message box yes or no to make sure user wanted a country selected.
 					DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
-
 					if (dialogResult == DialogResult.Yes)
 					{
 						btnSearch.Enabled = false;
-
 						CountryWasFound = true;
-
 						txtLongandLat.Text = ("Latitude: " + Latitude[lstCountryInfo.SelectedIndex] + "  |  " + "Longitude: " + Longitude[lstCountryInfo.SelectedIndex]);
-
 						grpGoogleSearch.Enabled = true;
-
-						webBrowser.Navigate("http://google.com/maps/place/" + lstCountryInfo.SelectedItem.ToString() + "/@" + Longitude[lstCountryInfo.SelectedIndex] + Latitude[lstCountryInfo.SelectedIndex] + "z");
+						webBrowser.Navigate("http://google.com/maps/place/" + lstCountryInfo.SelectedItem.ToString() + "/@" + Longitude[lstCountryInfo.SelectedIndex] + "," + Latitude[lstCountryInfo.SelectedIndex] + "z");
 
 						break;
 					}
 				}
 			}
-
+			// States if country was not found to clear.
 			if (!CountryWasFound)
 			{
 				MessageBox.Show("Country was not found.","Error:");
@@ -119,44 +128,58 @@ namespace Country_Information
 
 		}
 
-
+		/// <summary>
+		/// Button search click when someone types country
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnSearch_Click(object sender, EventArgs e)
 		{
 			CountrySearch();
 		}
 	
-
+		/// <summary>
+		/// Button clear for when user wants to get new information for another country
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btntxtClear_Click(object sender, EventArgs e)
 		{
 			// Clear contents in text box
 			txtCountryName.Clear();
 			lstCountryInfo.ClearSelected();
-
 			txtLongandLat.Clear();
-
 			lstCountryInfo.SelectedItem = null;
-
 			grpGoogleSearch.Enabled = false;
-
 			webBrowser.Navigate("http://google.com/maps");
 
 		}
 
+		/// <summary>
+		/// Event for when when a countries text is changed. 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void txtCountryName_TextChanged(object sender, EventArgs e)
 		{
 			// Make sure that textbox is full to enable buttons.
 			btnSearch.Enabled = !string.IsNullOrEmpty(txtCountryName.Text);
 			btntxtClear.Enabled = !string.IsNullOrEmpty(txtCountryName.Text);
 
+			txtCountryName.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(this.txtCountryName.Text);
+			txtCountryName.Select(txtCountryName.MaxLength, 0);
+
+
 		}
 
-		private void lstCountryInfo_Click(object sender, EventArgs e)
-		{
-			
-		}
-
+		/// <summary>
+		/// Event for when a country is doubled clicked to give more info.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
+			// Web browser so that the user can double click a item in listbox to get details from google.
 			if (lstCountryInfo.SelectedItem !=null)
 			{
 				string url = lstCountryInfo.SelectedItem.ToString();
@@ -171,6 +194,11 @@ namespace Country_Information
 			
 		}
 
+		/// <summary>
+		/// Event for when search textbox is clicked.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void txtCountryName_Click(object sender, EventArgs e)
 		{
 			txtCountryName.Text = null;
@@ -182,6 +210,11 @@ namespace Country_Information
 			grpGoogleSearch.Enabled = false;
 		}
 
+		/// <summary>
+		/// Event for when certain keys are clicked to auto click buttons.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void txtCountryName_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)

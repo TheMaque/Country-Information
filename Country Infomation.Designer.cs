@@ -56,7 +56,6 @@
 			this.lstCountryInfo.Name = "lstCountryInfo";
 			this.lstCountryInfo.Size = new System.Drawing.Size(321, 276);
 			this.lstCountryInfo.TabIndex = 3;
-			this.lstCountryInfo.Click += new System.EventHandler(this.lstCountryInfo_Click);
 			this.lstCountryInfo.DoubleClick += new System.EventHandler(this.lstCountryInfo_DoubleClick);
 			// 
 			// txtCountryName
