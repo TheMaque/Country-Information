@@ -30,12 +30,12 @@ namespace Country_Information
 		{
 			InitializeComponent();
 		}
-		
+
 		// Global
 		string[] Countries = new string[243];
 		string[] Latitude = new string[243];
 		string[] Longitude = new string[243];
-		
+
 
 		private void CountryInformation_Load(object sender, EventArgs e)
 		{
@@ -57,7 +57,7 @@ namespace Country_Information
 				lstCountryInfo.Items.Add(Countries);
 				txtCountryName.AutoCompleteCustomSource.Add(Countries);
 			}
-				
+
 		}
 
 
@@ -74,7 +74,7 @@ namespace Country_Information
 				Countries[index] = data[0];
 				Latitude[index] = data[1];
 				Longitude[index] = data[2];
-				
+
 				index++;
 
 			}
@@ -82,35 +82,47 @@ namespace Country_Information
 			inputFileReader.Dispose();
 		}
 
-		private void btnSearch_Click(object sender, EventArgs e)
+		private void CountrySearch()
 		{
-			// Find country after user types
-			int index = lstCountryInfo.FindString(txtCountryName.Text, -1);
-			if (index != -1)
+			bool CountryWasFound = false;
+			for (int index = lstCountryInfo.Items.Count - 1; index >= 0; index--)
 			{
-				lstCountryInfo.SetSelected(index, true);
-				DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
-				if (dialogResult == DialogResult.Yes)
+				if (lstCountryInfo.Items[index].ToString().Contains(txtCountryName.Text))
 				{
-					btnSearch.Enabled = false;
+					lstCountryInfo.SetSelected(index, true);
+					DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
 
+					if (dialogResult == DialogResult.Yes)
+					{
+						btnSearch.Enabled = false;
 
-				}
-				else if (dialogResult == DialogResult.No)
-				{
-					
+						CountryWasFound = true;
+
+						txtLongandLat.Text = ("Latitude: " + Latitude[lstCountryInfo.SelectedIndex] + "  |  " + "Longitude: " + Longitude[lstCountryInfo.SelectedIndex]);
+
+						grpGoogleSearch.Enabled = true;
+
+						webBrowser.Navigate("http://google.com/maps/place/" + lstCountryInfo.SelectedItem.ToString() + "/@" + Longitude[lstCountryInfo.SelectedIndex] + Latitude[lstCountryInfo.SelectedIndex] + "z");
+
+						break;
+					}
 				}
 			}
-			else
+
+			if (!CountryWasFound)
 			{
-				// Show message to user if input is not a valid character
-				MessageBox.Show("Country not found, try again!", "Error: Country Invalid.");
+				MessageBox.Show("Country was not found.","Error:");
 				txtCountryName.Clear();
-
 			}
-
 
 		}
+
+
+		private void btnSearch_Click(object sender, EventArgs e)
+		{
+			CountrySearch();
+		}
+	
 
 		private void btntxtClear_Click(object sender, EventArgs e)
 		{
@@ -121,6 +133,10 @@ namespace Country_Information
 			txtLongandLat.Clear();
 
 			lstCountryInfo.SelectedItem = null;
+
+			grpGoogleSearch.Enabled = false;
+
+			webBrowser.Navigate("http://google.com/maps");
 
 		}
 
@@ -142,9 +158,13 @@ namespace Country_Information
 			if (lstCountryInfo.SelectedItem !=null)
 			{
 				string url = lstCountryInfo.SelectedItem.ToString();
-				webBrowser.Navigate("http://google.com/maps/search/" + lstCountryInfo.SelectedItem.ToString());
+				webBrowser.Navigate("http://google.com/maps/place/" + lstCountryInfo.SelectedItem.ToString() + "/@" + Longitude[lstCountryInfo.SelectedIndex] + Latitude[lstCountryInfo.SelectedIndex] + "z");
 
-				txtLongandLat.Text = "Latitude: " + Latitude + " Longitude: " + Longitude.ToString();
+				txtLongandLat.Text = "Latitude:" + Latitude[lstCountryInfo.SelectedIndex] + "  |  " + "Longitude:" + Longitude[lstCountryInfo.SelectedIndex];
+				grpGoogleSearch.Enabled = true;
+
+				btntxtClear.Enabled = true;
+			
 			}
 			
 		}
@@ -154,6 +174,10 @@ namespace Country_Information
 			txtCountryName.Text = null;
 
 			lstCountryInfo.SelectedItem = null;
+
+			webBrowser.Navigate("http://google.com/maps");
+
+			grpGoogleSearch.Enabled = false;
 		}
 
 		private void txtCountryName_KeyDown(object sender, KeyEventArgs e)
