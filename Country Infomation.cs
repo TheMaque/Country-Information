@@ -47,6 +47,8 @@ namespace Country_Information
 			// Print CSV into array
 			PrintArrayContents();
 
+			
+
 		}
 
 		private void PrintArrayContents()
