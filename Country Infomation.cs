@@ -57,7 +57,7 @@ namespace Country_Information
 				lstCountryInfo.Items.Add(Countries);
 				txtCountryName.AutoCompleteCustomSource.Add(Countries);
 			}
-
+				
 		}
 
 
@@ -92,10 +92,8 @@ namespace Country_Information
 				DialogResult dialogResult = MessageBox.Show("Is this the country you were searching for?", "Are you sure?", MessageBoxButtons.YesNo);
 				if (dialogResult == DialogResult.Yes)
 				{
-
-					txtLongandLat.Text = "Latitude:" + Latitude + "Longitude" + Longitude;
 					btnSearch.Enabled = false;
-					grpGoogleSearch.Enabled = true;
+
 
 				}
 				else if (dialogResult == DialogResult.No)
@@ -122,7 +120,6 @@ namespace Country_Information
 
 			txtLongandLat.Clear();
 
-			grpGoogleSearch.Enabled = false;
 			lstCountryInfo.SelectedItem = null;
 
 		}
@@ -142,7 +139,7 @@ namespace Country_Information
 
 		private void lstCountryInfo_DoubleClick(object sender, EventArgs e)
 		{
-			txtLongandLat.Text = "Latitude:" + Latitude + "Longitude" + Longitude;
+			txtLongandLat.Text = "Latitude: " + Latitude[242] + " Longitude: " + Longitude[242];
 
 			if (lstCountryInfo.SelectedItem !=null)
 			{
@@ -157,7 +154,6 @@ namespace Country_Information
 			txtCountryName.Text = null;
 
 			lstCountryInfo.SelectedItem = null;
-			grpGoogleSearch.Enabled = false;
 		}
 
 		private void txtCountryName_KeyDown(object sender, KeyEventArgs e)

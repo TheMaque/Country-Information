@@ -143,7 +143,6 @@
 			this.grpGoogleSearch.BackgroundImage = global::Country_Information.Properties.Resources.groupBox_Background;
 			this.grpGoogleSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.grpGoogleSearch.Controls.Add(this.webBrowser);
-			this.grpGoogleSearch.Enabled = false;
 			this.grpGoogleSearch.ForeColor = System.Drawing.Color.Transparent;
 			this.grpGoogleSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.grpGoogleSearch.Location = new System.Drawing.Point(12, 74);
