@@ -163,7 +163,7 @@
 			this.lblDoubleClick.Name = "lblDoubleClick";
 			this.lblDoubleClick.Size = new System.Drawing.Size(225, 13);
 			this.lblDoubleClick.TabIndex = 10;
-			this.lblDoubleClick.Text = "Double click to get detials for country.";
+			this.lblDoubleClick.Text = "Double click to get details for country.";
 			// 
 			// grpDoubleClick
 			// 
