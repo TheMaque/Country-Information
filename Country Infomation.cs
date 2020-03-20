@@ -152,6 +152,7 @@ namespace Country_Information
 			lstCountryInfo.SelectedItem = null;
 			grpGoogleSearch.Enabled = false;
 			webBrowser.Navigate("http://google.com/maps");
+			txtLongandLat.Clear();
 
 		}
 
