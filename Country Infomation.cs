@@ -152,7 +152,6 @@ namespace Country_Information
 			lstCountryInfo.SelectedItem = null;
 			grpGoogleSearch.Enabled = false;
 			webBrowser.Navigate("http://google.com/maps");
-			txtLongandLat.Clear();
 
 		}
 
@@ -205,6 +204,8 @@ namespace Country_Information
 			txtCountryName.Text = null;
 
 			lstCountryInfo.SelectedItem = null;
+
+			txtLongandLat.Text = null;
 
 			webBrowser.Navigate("http://google.com/maps");
 
